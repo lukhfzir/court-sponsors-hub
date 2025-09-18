@@ -15,6 +15,8 @@ const Header = () => {
           <a href="#home" className="text-foreground hover:text-primary transition-colors">Home</a>
           <a href="#packages" className="text-foreground hover:text-primary transition-colors">Packages</a>
           <a href="#about" className="text-foreground hover:text-primary transition-colors">About</a>
+          <a href="/register" className="text-foreground hover:text-primary transition-colors">Register</a>
+          <a href="/admin" className="text-foreground hover:text-primary transition-colors">Admin</a>
           <a href="#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
         </nav>
 
@@ -22,8 +24,8 @@ const Header = () => {
           <Button variant="ghost" className="hidden md:inline-flex">
             Login
           </Button>
-          <Button variant="hero">
-            Register Now
+          <Button variant="hero" asChild>
+            <a href="/register">Register Now</a>
           </Button>
         </div>
       </div>
