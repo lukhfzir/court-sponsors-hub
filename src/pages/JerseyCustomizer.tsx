@@ -3,44 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Jersey3D from "@/components/Jersey3D";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const JerseyCustomizer = () => {
   const [playerName, setPlayerName] = useState("");
   const [playerNumber, setPlayerNumber] = useState("");
-  const [jerseyColor, setJerseyColor] = useState("blue");
-
-  const colorOptions = [
-    { value: "blue", label: "Royal Blue", color: "bg-blue-600" },
-    { value: "yellow", label: "Bright Yellow", color: "bg-yellow-400" },
-    { value: "red", label: "Vibrant Red", color: "bg-red-600" },
-    { value: "green", label: "Forest Green", color: "bg-green-600" },
-    { value: "black", label: "Classic Black", color: "bg-gray-900" },
-    { value: "white", label: "Pure White", color: "bg-white border-2 border-gray-200" },
-  ];
-
-  const getJerseyColorClass = () => {
-    const colorMap = {
-      blue: "bg-blue-600",
-      yellow: "bg-yellow-400",
-      red: "bg-red-600",
-      green: "bg-green-600",
-      black: "bg-gray-900",
-      white: "bg-white border-2 border-gray-200"
-    };
-    return colorMap[jerseyColor as keyof typeof colorMap];
-  };
-
-  const getTextColorClass = () => {
-    return jerseyColor === "white" || jerseyColor === "yellow" ? "text-gray-900" : "text-white";
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-accent/20 py-8">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-4">Jersey Customizer</h1>
-          <p className="text-muted-foreground text-lg">Design your personalized pickleball jersey</p>
+          <p className="text-muted-foreground text-lg">Design your personalized CourtSponsor pickleball jersey</p>
+          <p className="text-sm text-muted-foreground mt-2">Official Yellow & Blue Design</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -48,7 +24,7 @@ const JerseyCustomizer = () => {
           <Card className="shadow-elegant">
             <CardHeader>
               <CardTitle className="text-primary">Customize Your Jersey</CardTitle>
-              <CardDescription>Enter your details and choose your style</CardDescription>
+              <CardDescription>Enter your name and number for the official CourtSponsor jersey</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-2">
@@ -77,22 +53,15 @@ const JerseyCustomizer = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="jerseyColor">Jersey Color</Label>
-                <Select value={jerseyColor} onValueChange={setJerseyColor}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a color" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {colorOptions.map((color) => (
-                      <SelectItem key={color.value} value={color.value}>
-                        <div className="flex items-center space-x-2">
-                          <div className={`w-4 h-4 rounded-full ${color.color}`}></div>
-                          <span>{color.label}</span>
-                        </div>
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Label>Jersey Design</Label>
+                <div className="p-3 bg-muted rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
+                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+                    <span className="text-sm font-medium">Official CourtSponsor Blue & Yellow</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Premium design with CourtSponsor branding</p>
+                </div>
               </div>
 
               <div className="pt-4">
@@ -106,45 +75,14 @@ const JerseyCustomizer = () => {
           {/* Jersey Preview */}
           <Card className="shadow-elegant">
             <CardHeader>
-              <CardTitle className="text-primary">Live Preview</CardTitle>
-              <CardDescription>See how your jersey will look</CardDescription>
+              <CardTitle className="text-primary">3D Preview</CardTitle>
+              <CardDescription>Rotate and zoom to see your jersey from all angles</CardDescription>
             </CardHeader>
-            <CardContent className="flex justify-center items-center min-h-[400px]">
-              <div className="relative">
-                {/* Jersey SVG */}
-                <div className={`w-64 h-80 ${getJerseyColorClass()} rounded-t-3xl rounded-b-lg relative overflow-hidden shadow-lg transition-all duration-300`}>
-                  {/* Jersey shape details */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-8 bg-black/10 rounded-b-lg"></div>
-                  
-                  {/* Sleeves */}
-                  <div className={`absolute -left-8 top-8 w-16 h-24 ${getJerseyColorClass()} rounded-l-2xl transform -rotate-12`}></div>
-                  <div className={`absolute -right-8 top-8 w-16 h-24 ${getJerseyColorClass()} rounded-r-2xl transform rotate-12`}></div>
-                  
-                  {/* Player Name */}
-                  <div className="absolute top-20 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className={`${getTextColorClass()} font-bold text-lg tracking-wider`}>
-                      {playerName || "YOUR NAME"}
-                    </div>
-                  </div>
-                  
-                  {/* Player Number */}
-                  <div className="absolute top-32 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className={`${getTextColorClass()} font-bold text-6xl leading-none`}>
-                      {playerNumber || "00"}
-                    </div>
-                  </div>
-                  
-                  {/* Jersey details */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className={`${getTextColorClass()} text-xs opacity-60`}>PICKLEBALL</div>
-                  </div>
-                </div>
-                
-                {/* Size indicator */}
-                <div className="mt-4 text-center">
-                  <p className="text-sm text-muted-foreground">Size: Adult Medium</p>
-                  <p className="text-xs text-muted-foreground mt-1">Premium polyester material</p>
-                </div>
+            <CardContent>
+              <Jersey3D playerName={playerName} playerNumber={playerNumber} />
+              <div className="mt-4 text-center">
+                <p className="text-sm text-muted-foreground">Size: Adult Medium</p>
+                <p className="text-xs text-muted-foreground mt-1">Premium polyester material • Moisture-wicking technology</p>
               </div>
             </CardContent>
           </Card>
