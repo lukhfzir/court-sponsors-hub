@@ -22,8 +22,11 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant="ghost" className="hidden md:inline-flex">
-            Login
+          <Button variant="ghost" className="hidden md:inline-flex" asChild>
+            <a href="/login">Login</a>
+          </Button>
+          <Button variant="outline" className="hidden md:inline-flex" asChild>
+            <a href="/dashboard">Dashboard</a>
           </Button>
           <Button variant="hero" asChild>
             <a href="/register">Register Now</a>

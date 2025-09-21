@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import Registration from "./pages/Registration";
 import Admin from "./pages/Admin";
 import JerseyCustomizer from "./pages/JerseyCustomizer";
+import Login from "./pages/Login";
+import UserDashboard from "./pages/UserDashboard";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -25,6 +27,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/register" element={<Registration />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<UserDashboard />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/jersey" element={<JerseyCustomizer />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
