@@ -17,21 +17,32 @@ const Login = () => {
     if (isLogin) {
       // Check hardcoded credentials
       if (email === "user@user" && password === "pass123") {
+        localStorage.setItem("userType", "user");
+        localStorage.setItem("userEmail", email);
         toast({
           title: "Login Successful",
-          description: `Welcome ${email}!`,
+          description: `Welcome User!`,
         });
-        // Mock redirect to dashboard
         window.location.href = "/dashboard";
+      } else if (email === "admin@admin" && password === "pass123") {
+        localStorage.setItem("userType", "admin");
+        localStorage.setItem("userEmail", email);
+        toast({
+          title: "Admin Login Successful",
+          description: `Welcome Admin!`,
+        });
+        window.location.href = "/admin";
       } else {
         toast({
           title: "Login Failed",
-          description: "Invalid email or password. Use user@user and pass123",
+          description: "Invalid credentials. Use user@user or admin@admin with pass123",
           variant: "destructive",
         });
       }
     } else {
-      // Registration flow
+      // Registration flow - always creates user account
+      localStorage.setItem("userType", "user");
+      localStorage.setItem("userEmail", email);
       toast({
         title: "Registration Successful",
         description: `Welcome ${email}!`,
