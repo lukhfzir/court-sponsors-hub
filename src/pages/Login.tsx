@@ -13,13 +13,31 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock authentication - replace with actual backend logic
-    toast({
-      title: isLogin ? "Login Successful" : "Registration Successful",
-      description: `Welcome ${email}!`,
-    });
-    // Mock redirect to dashboard
-    window.location.href = "/dashboard";
+    
+    if (isLogin) {
+      // Check hardcoded credentials
+      if (email === "user@user" && password === "pass123") {
+        toast({
+          title: "Login Successful",
+          description: `Welcome ${email}!`,
+        });
+        // Mock redirect to dashboard
+        window.location.href = "/dashboard";
+      } else {
+        toast({
+          title: "Login Failed",
+          description: "Invalid email or password. Use user@user and pass123",
+          variant: "destructive",
+        });
+      }
+    } else {
+      // Registration flow
+      toast({
+        title: "Registration Successful",
+        description: `Welcome ${email}!`,
+      });
+      window.location.href = "/dashboard";
+    }
   };
 
   return (
