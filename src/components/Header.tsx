@@ -35,11 +35,6 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="/" className="text-foreground hover:text-primary transition-colors">Home</a>
-          <a href="/#packages" className="text-foreground hover:text-primary transition-colors">Packages</a>
-          <a href="/jersey" className="text-foreground hover:text-primary transition-colors">Jersey</a>
-          <a href="/#about" className="text-foreground hover:text-primary transition-colors">About</a>
-          
           {/* Admin-only menu items */}
           {isAdmin && (
             <a href="/admin" className="text-foreground hover:text-primary transition-colors">Admin Panel</a>
@@ -49,13 +44,6 @@ const Header = () => {
           {isUser && (
             <a href="/dashboard" className="text-foreground hover:text-primary transition-colors">My Dashboard</a>
           )}
-          
-          {/* Guest-only menu items */}
-          {!isLoggedIn && (
-            <a href="/register" className="text-foreground hover:text-primary transition-colors">Register</a>
-          )}
-          
-          <a href="/#contact" className="text-foreground hover:text-primary transition-colors">Contact</a>
         </nav>
 
         <div className="flex items-center space-x-4">
