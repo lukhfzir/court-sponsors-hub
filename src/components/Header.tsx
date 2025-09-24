@@ -29,9 +29,9 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-hero-gradient rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">C</span>
+            <span className="text-white font-bold text-sm">A</span>
           </div>
-          <span className="font-bold text-xl text-foreground">CourtSponsor</span>
+          <span className="font-bold text-xl text-foreground">Arena by CelcomDigi</span>
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">

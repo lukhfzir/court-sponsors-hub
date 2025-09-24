@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-badminton-court.jpg";
+import heroImage from "@/assets/hero-pickleball-court.jpg";
 
 const HeroSection = () => {
   return (
@@ -10,12 +10,12 @@ const HeroSection = () => {
             <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
               Transform Your{" "}
               <span className="bg-hero-gradient bg-clip-text text-transparent">
-                Badminton Court
+                Pickleball Court
               </span>{" "}
               Into a Premium Venue
             </h1>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-lg">
-              Partner with us to elevate your court with professional sponsorship packages. 
+              Partner with Arena by CelcomDigi to elevate your court with professional sponsorship packages. 
               Get cash funding, premium assets, and transform your space into a world-class facility.
             </p>
           </div>
@@ -49,7 +49,7 @@ const HeroSection = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-card animate-float">
             <img 
               src={heroImage} 
-              alt="Professional badminton court with blue nets and yellow accents" 
+              alt="Professional pickleball court with blue and yellow color scheme" 
               className="w-full h-[500px] lg:h-[600px] object-cover"
             />
             <div className="absolute inset-0 bg-hero-gradient/10"></div>
