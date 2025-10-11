@@ -3,7 +3,9 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
-  base: "/court-sponsors-hub/",
+  server: {
+    port: 8080,
+  },
   plugins: [react()],
   resolve: {
     alias: {
