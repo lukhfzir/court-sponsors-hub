@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/court-sponsors-hub/", // 👈 This line fixes the blank page on GitHub Pages
+  base: "/court-sponsors-hub/", // 👈 change this to your repo name
   server: {
     host: "::",
     port: 8080,
@@ -17,3 +17,4 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
+
