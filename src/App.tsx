@@ -20,7 +20,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      {/* 👇 Important for GitHub Pages routing */}
+      <BrowserRouter basename="/court-sponsors-hub">
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">
@@ -31,7 +32,7 @@ const App = () => (
               <Route path="/dashboard" element={<UserDashboard />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/jersey" element={<JerseyCustomizer />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Catch-all route for undefined paths */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
